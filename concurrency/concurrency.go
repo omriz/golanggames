@@ -11,7 +11,7 @@ func worker(input <-chan int, output chan<- int, index int) {
 	output <- rand.Intn(10) + 1
 	for {
 		x := <-input
-		fmt.Println("Worker", index, "got", x)
+		fmt.Println("Worker", index, "recieved", x)
 		output <- x * (rand.Intn(5) + 1)
 		time.Sleep(time.Millisecond * time.Duration(rand.Intn(5001)+1))
 	}
